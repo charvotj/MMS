@@ -1,0 +1,183 @@
+% !TeX encoding = UTF-8
+
+\documentclass{protokol}
+
+\usepackage{pdfpages}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{arrows}
+
+%====== Units =====
+\usepackage{siunitx}
+\sisetup{inter-unit-product =\ensuremath{\cdot}}
+\sisetup{group-digits = integer}
+\sisetup{output-decimal-marker = {,}}
+\sisetup{exponent-product = \ensuremath{\cdot}}
+\sisetup{separate-uncertainty}
+\sisetup{tight-spacing = false}
+%\sisetup{scientific-notation = true}
+%\sisetup{round-mode=places,round-precision=4}
+%\sisetup{evaluate-expression}
+
+
+%====== Grafy =====
+\usepackage{pgfplots}
+\pgfplotsset{width=0.8\linewidth, compat=1.17}
+\def\plotcscale{0.8}
+\usepackage{pgfplotstable}
+\usepackage[figurename=Obr.]{caption} % figure caption rename
+
+%====== Rovnice align block ======
+\usepackage{amsmath}
+\setlength{\jot}{10pt} % rozestup mezi řádky
+
+\graphicspath{ {./img/} }
+
+%====== Vyplňte údaje ======
+\jmeno{Jakub Charvot}
+\kod{240844}
+\rocnik{3.}
+\obor{MET}
+\skupina{MET/2}
+\spolupracoval{Radek Kučera}
+
+\merenodne{26.03.\ 2024}
+\odevzdanodne{02.03.\ 2024}
+\nazev{Měření polohy}
+\cislo{1} %měřené úlohy
+
+\predmet{Mikrosenzory a mikromechanické systémy}
+\ustav{Ústav mikroelektroniky}
+\skola{FEKT VUT v~Brně}
+
+\def\para{x+0}
+\def\parb{\para-80}
+
+
+% %citace 
+% \usepackage[backend=biber, style=iso-numeric, sortlocale=cs_CZ, autolang=other, language=czech]{biblatex}
+% \addbibresource{bibliography.bib}
+% \DeclareFieldFormat{labelnumberwidth}{\mkbibbrackets{#1}}
+% hyperlinky
+\usepackage[colorlinks]{hyperref}
+
+% odstavce
+\usepackage{parskip}
+
+% Bloky kódu
+\usepackage{xcolor}
+
+%New colors defined below
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\usepackage{listings}
+\lstdefinestyle{mystyle}{
+  backgroundcolor=\color{backcolour}, commentstyle=\color{codegreen},
+  keywordstyle=\color{magenta},
+  numberstyle=\tiny\color{codegray},
+  stringstyle=\color{codepurple},
+  basicstyle=\ttfamily\footnotesize,
+  breakatwhitespace=false,         
+  breaklines=true,                 
+  captionpos=b,                    
+  keepspaces=true,                 
+  numbers=left,                    
+  numbersep=5pt,                  
+  showspaces=false,                
+  showstringspaces=false,
+  showtabs=false,                  
+  tabsize=2
+}
+\lstset{
+	inputencoding=utf8,
+	extendedchars=true,
+	literate={á}{{\'a}}1 {č}{{\v{c}}}1 {ď}{{\v{d}}}1 {é}{{\'e}}1 {ě}{{\v{e}}}1 
+           {í}{{\'i}}1 {ň}{{\v{n}}}1 {ó}{{\'o}}1 {ř}{{\v{r}}}1 {š}{{\v{s}}}1 
+           {ť}{{\v{t}}}1 {ú}{{\'u}}1 {ů}{{\r{u}}}1 {ý}{{\'y}}1 {ž}{{\v{z}}}1 
+           {Á}{{\'A}}1 {Č}{{\v{C}}}1 {Ď}{{\v{D}}}1 {É}{{\'E}}1 {Ě}{{\v{E}}}1 
+           {Í}{{\'I}}1 {Ň}{{\v{N}}}1 {Ó}{{\'O}}1 {Ř}{{\v{R}}}1 {Š}{{\v{S}}}1 
+           {Ť}{{\v{T}}}1 {Ú}{{\'U}}1 {Ů}{{\r{U}}}1 {Ý}{{\'Y}}1 {Ž}{{\v{Z}}}1,
+	style=mystyle
+	}
+
+    \lstset{
+    language=Python,  % Specify the language for syntax highlighting
+    basicstyle=\small\ttfamily,  % Set the basic style for the code
+    keywordstyle=\color{blue},  % Set style for keywords
+    commentstyle=\color{green!50!black},  % Set style for comments
+    stringstyle=\color{orange},  % Set style for strings
+    showstringspaces=false,  % Do not show spaces in strings
+    breaklines=true,  % Enable line wrapping
+    tabsize=4  % Set tab size
+}
+
+% Číslování
+\pagenumbering{arabic}
+
+% Tabulky
+\usepackage{booktabs}
+
+% =========================================
+% =============== DOKUMENT ================
+% =========================================
+\begin{document}
+	%====== Vygenerování tabulky ======a
+    \maketitle
+
+    \section{Měření a jeho vyhodnocení }
+        Maximální absolutní chyba použitého senzoru je \(\pm \qty{0.22}{\degree}\), což je údaj platný jak pro měření rotace, tak i náklonu -- jedná se o stále stejný typ měření, pouze využívá jinou osu senzoru. 
+
+        \begin{table}[ht!]
+            \caption{Nastavené a měřené hodnoty (ADXL345).}
+            \def\arraystretch{1.2}
+            \centering
+            \input{tables/hodnoty.tex}
+        \end{table}
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.8\textwidth]{img/naklon-kalib.pdf}
+        \caption{Kalibrační křivka měření náklonu.}
+        \label{fig:img/graf-1}
+    \end{figure}
+    
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.8\textwidth]{img/naklon-korek.pdf}
+        \caption{Korekční křivka měření náklonu.}
+        \label{fig:img/graf-1}
+    \end{figure}
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.8\textwidth]{img/rotace-kalib.pdf}
+        \caption{Kalibrační křivka měření rotace.}
+        \label{fig:img/graf-2}
+    \end{figure}
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.8\textwidth]{img/rotace-korek.pdf}
+        \caption{Korekční křivka měření rotace.}
+        \label{fig:img/graf-2}
+    \end{figure}
+
+    \subsection{Příklad výpočtu}
+    
+    \[
+        \Delta \theta_{rot} = \theta_{rot-nast} - \theta_{rot-mer} \\
+        \Delta \theta_{nak} = \theta_{nak-nast} - \theta_{nak-mer} 
+    \]
+
+    \clearpage
+    \subsection{Zdrojový kód}
+    \lstinputlisting[caption={Použitý kód v jazyce Python}, label=lst:example]{data/_code.py}
+
+        
+        \clearpage
+        \section*{Závěr}
+            Sračka :(
+\end{document}
