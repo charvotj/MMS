@@ -41,10 +41,10 @@
 \skupina{MET/2}
 \spolupracoval{Radek Kučera}
 
-\merenodne{26.03.\ 2024}
-\odevzdanodne{02.03.\ 2024}
-\nazev{Měření polohy}
-\cislo{1} %měřené úlohy
+\merenodne{02.04.\ 2024}
+\odevzdanodne{09.04.\ 2024}
+\nazev{Měření veličin pomocí polohového MEMS senzoru}
+\cislo{10} %měřené úlohy
 
 \predmet{Mikrosenzory a mikromechanické systémy}
 \ustav{Ústav mikroelektroniky}
@@ -165,7 +165,7 @@
         \label{fig:img/graf-2}
     \end{figure}
 
-    \subsection{Příklad výpočtu}
+    \subsubsection{Příklad výpočtu}
     
     \[
         \Delta \theta_{rot} = \theta_{rot-nast} - \theta_{rot-mer} \\
@@ -176,8 +176,59 @@
     \subsection{Zdrojový kód}
     \lstinputlisting[caption={Použitý kód v jazyce Python}, label=lst:example]{data/_code.py}
 
+    \begin{table}[ht!]
+        \caption{Měřené a vypočtené hodnoty (ADXL203).}
+        \def\arraystretch{1.2}
+        \centering
+        \begin{tabular}{|c|c|c|c|c|c|}
+            \hline \multicolumn{3}{|c|}{ Vibrace v ose X } & \multicolumn{3}{|c|}{ Vibrace v ose Y } \\
+            \hline $\mathrm{f}_{\mathrm{Hz}}[\mathrm{Hz}]$ & \begin{tabular}{c} 
+            Amplituda \\
+            {$[-]$}
+            \end{tabular} & \begin{tabular}{c}
+            $\mathrm{f}_{\mathrm{RPM}}$ \\
+            {$[\mathrm{RPM}]$}
+            \end{tabular} & $\mathrm{f}_{\mathrm{Hz}}[\mathrm{Hz}]$ & \begin{tabular}{c} 
+            Amplituda \\
+            {$[-]$}
+            \end{tabular} & \begin{tabular}{c}
+            $\mathrm{f}_{\mathrm{RPM}}$ \\
+            {$[\mathrm{RPM}]$}
+            \end{tabular} \\
+            \hline \multicolumn{6}{|c|}{$\mathrm{U}=4,5 \mathrm{~V}$} \\
+            \hline 777 & 0,034 &  & 483 & 0,013 & \\
+            \hline 678 & 0,009 &      & 387 & 0,017 & \\
+            \hline 488 & 0,009 &      & 309 & 0,021 & \\
+            \hline 387 & 0,0106 & 23220 & 195 & 0,035 & 11700 \\
+            \hline \multicolumn{6}{|c|}{$\mathrm{U}=6 \mathrm{~V}$} \\
+            \hline 762 & 0,06 &   & 286 & 0,015 &  \\
+            \hline 503 & 0,017 &      & 251 & 0,012 & \\
+            \hline 375 & 0,013 &      & 218 & 0,019 & 13080 \\
+            \hline 285 & 0,012 & 17100  & 926 & 0,031 &  \\
+            \hline \multicolumn{6}{|c|}{$\mathrm{U}=8 \mathrm{~V}$} \\
+            \hline 802 & 0,052 &  & 450 & 0,022 &  \\
+            \hline 767 & 0,022 &      & 314 & 0,016 & \\
+            \hline 602 & 0,024 &      & 285 & 0,028 & \\
+            \hline 280 & 0,037 & 16800  & 161 & 0,031 & 9660 \\
+            \hline \multicolumn{6}{|c|}{$\mathrm{U}=10 \mathrm{~V}$} \\
+            \hline 777 & 0,101 &  & 549 & 0,0222 &  \\
+            \hline 554 & 0,025 &      & 342 & 0,016 & \\
+            \hline 336 & 0,044 &      & 192 & 0,028 & \\
+            \hline 240 & 0,037 & 14400  & 139 & 0,031 & 8340 \\
+            \hline \multicolumn{6}{|c|}{$\mathrm{U}=12 \mathrm{~V}$} \\
+            \hline 625 & 0,0394 & & 324 & 0,069 &  \\
+            \hline 217 & 0,062 &      & 275 & 0,058 & \\
+            \hline 754 & 0,065 &      & 166 & 0,055 & \\
+            \hline 53  & 0,133 & 3180  & 86  & 0,045 & 5160 \\
+            \hline
+            \end{tabular}
+    
+    \end{table}
+
         
         \clearpage
         \section*{Závěr}
-            Sračka :(
+            V této úloze jsme za pomoci předpřipraveného Python kódu pracovali se dvěmi typy akcelerometrů. V první části jsme využili schopnost senzoru měřit statické zrychlení ve třech osách. Při náklonu senzoru se mění rozložení tíhové síly mezi osami a lze tedy vypočítat úhel náklonu. Z přiložených kalibračních křivek vyplývá, že senzor měří poměrně přesně a lineárně v celém svém rozsahu, absolutní chyba nikdy nepřesahuje \qty{2}{\degree}, ovšem výrobce garantuje hodnotu ještě o řád menší a tento požadavek rozhodně splněn není.  Jelikož program automaticky přepočítává měřenou analogovou hodnotu na údaj náklonu de stupních a k původní hodnotě nemáme přístup, nemá zde smysl mluvit o citlivosti senzoru, i když to po nás zadání vyžaduje. 
+
+            Ve druhé části úlohy jsme měřili dynamické zrychlení, v našem případě vibrace. Kvůli naprosto nevhodnému způsobu zpracování dat, který autor úlohy zvolil (i přesto, že měl k dispozici plné možnosti jazyka Python a mohl využít algoritmicky mnohem přesnější metodu) jsou námi získaná data zatížena velkou chybou. Hodnotu základní frekvence ze které se má dále počítat rychlost otáček se nám podařilo zachytit pouze v několika případech a tedy ani vypočtené hodnoty neodpovídají předpokládanému trendu. 
 \end{document}

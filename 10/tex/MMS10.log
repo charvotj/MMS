@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.3.14)  8 APR 2024 16:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.3.14)  8 APR 2024 22:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -777,13 +777,17 @@ Package pdftex.def Info: img/rotace-korek.pdf  used on input line 163.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 168.
+
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2 <./img/naklon-kalib.pdf> <./img/naklon-korek.pdf>] [3 <./img/rotace-kalib.pdf> <./img/rotace-korek.pdf>]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 177.
  (./data/_code.py) [4
 
-] [5
+] [5] [6
 
 ] (./MMS10.aux)
  ***********
@@ -795,21 +799,21 @@ L3 programming layer <2023-06-05>
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `MMS10.out' has not changed.
-(rerunfilecheck)             Checksum: 9505DC99356FEC5D96AF40D5C0D419A5;470.
+(rerunfilecheck)             Checksum: E74C120FF7A5CB35F84CA8DEF060463A;475.
  ) 
 Here is how much of TeX's memory you used:
- 39441 strings out of 476790
- 926601 string characters out of 5804675
- 2125759 words of memory out of 5000000
- 59413 multiletter control sequences out of 15000+600000
+ 39445 strings out of 476790
+ 926648 string characters out of 5804675
+ 2134759 words of memory out of 5000000
+ 59415 multiletter control sequences out of 15000+600000
  519260 words of font info for 55 fonts, out of 8000000 for 9000
  473 hyphenation exceptions out of 8191
- 84i,12n,87p,860b,1372s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on MMS10.pdf (5 pages, 264912 bytes).
+ 84i,17n,87p,1000b,1372s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on MMS10.pdf (6 pages, 278450 bytes).
 PDF statistics:
- 233 PDF objects out of 1000 (max. 8388607)
- 196 compressed objects within 2 object streams
- 46 named destinations out of 1000 (max. 500000)
+ 244 PDF objects out of 1000 (max. 8388607)
+ 203 compressed objects within 3 object streams
+ 48 named destinations out of 1000 (max. 500000)
  57 words of extra memory for PDF output out of 10000 (max. 10000000)
 
